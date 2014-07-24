@@ -8,6 +8,8 @@
 @end
 
 @interface AlarmViewController : TableViewController
+- (void)reloadState;
+- (int)numberOfItems;
 @end
 
 @interface EditAlarmView : UIView

@@ -32,9 +32,16 @@ static NSDate *choosenTime;
     //Assign the choosen time
     NSTimeInterval timeInterval = timePicker.countDownDuration;
     choosenTime = [[NSDate date] dateByAddingTimeInterval:timeInterval];
-    NSLog(@"[TimerAlarms] User pickicked time [%@], prompting add view...", choosenTime);
+    
+    //v1.1: Fix for "deleting all alarms" bug (Initialize the alarm view if not initialized)
+    if ([(AlarmViewController *)[[self.tabBarController.viewControllers objectAtIndex:1] topViewController] numberOfItems] == 0) {
+        NSLog(@"[TimerAlarms] AlarmView might have not been initialized. Initializing AlarmView...");
+        [(AlarmViewController *)[[self.tabBarController.viewControllers objectAtIndex:1] topViewController] reloadState];
+        NSLog(@"[TimerAlarms] AlarmView initialized!");
+    }
 
     //Show the add new alarm view of AlarmViewController
+    NSLog(@"[TimerAlarms] User pickicked time [%@], prompting add view...", choosenTime);
     [(AlarmViewController *)[[self.tabBarController.viewControllers objectAtIndex:1] topViewController] showAddView]; 
 
 }
