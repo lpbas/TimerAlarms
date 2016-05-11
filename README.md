@@ -3,6 +3,10 @@ TimerAlarms
 
 Create alarms using iOS's timer interface.
 
+Notes: iOS 7 only. Not compatible with iPad. 
+
+(I should update this for iOS 8/9 sometime but I'm still on iOS 7 so I don't have a direct interest. Should not be hard for anyone interested.)
+
 Special thanks
 ===========
 
